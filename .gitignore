@@ -1,0 +1,12 @@
+# Disallowed
+/src/logs/
+/node_modules
+/.vscode/*
+.env*
+/tmp*
+/temp*
+/docs*
+*.log
+
+# Allowed
+!.env.example

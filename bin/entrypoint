@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+#
+# Developed at ZRP <zrp@zrp.com.br>
+# All rights reserved - 2019
+#
+# Maintained by:
+#   Nikolas Serafini (nikolas.serafini@zrp.com.br)
+#   Pedro Gryzinsky (pedro.gryzinsky@zrp.com.br)
+#
+# Contact any of the above for further information
+#
+
+PURPLE='\033[0;35m'
+YELLOW='\033[1;33m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+cat <<EOF
+
+
+███████╗███╗   ██╗██████╗ ██╗   ██╗██████╗  ██████╗ ██╗███╗   ██╗████████╗
+██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔═══██╗██║████╗  ██║╚══██╔══╝
+█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ ██████╔╝██║   ██║██║██╔██╗ ██║   ██║   
+██╔══╝  ██║╚██╗██║██╔══██╗  ╚██╔╝  ██╔═══╝ ██║   ██║██║██║╚██╗██║   ██║   
+███████╗██║ ╚████║██║  ██║   ██║   ██║     ╚██████╔╝██║██║ ╚████║   ██║   
+╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝  
+
+
+EOF
+
+echo -e "> Maintained by Nikolas (${PURPLE}nikolas.serafini@zrp.com.br${NC})"
+
+# Check dependencies
+echo -e "${GREEN}> Checking dependencies...${NC}"
+
+npm outdated
+
+if [ $? = 0 ]; then
+  echo -e "${GREEN}> Dependencies up to date${NC}"
+else
+  echo -e "${YELLOW}> Some dependencies are missing or are outdated.${NC}"
+  echo -e "${YELLOW}> Run ${NC}npm install${YELLOW} or ${NC}npm update${YELLOW} on your local environment${NC}"
+fi
+
+exec "$@"

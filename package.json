@@ -1,0 +1,50 @@
+{
+  "name": "aliexpress-parallel-crawler",
+  "version": "0.0.1",
+  "description": "A Puppeteer and puppeteer-cluster example of parallel web scraping",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect=0.0.0.0 -w src/ src/index.js",
+    "debug": "nodemon --inspect-brk=0.0.0.0 -w src/ src/index.js",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emethium/aliexpress-parallel-crawler"
+  },
+  "author": "Emethium <nikolas.serafini@gmail.com>",
+  "private": true,
+  "contributors": [
+    "Emethium <nikolas.serafini@zrp.com.br>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Emethium/aliexpress-parallel-crawler/issues"
+  },
+  "homepage": "https://github.com/Emethium/aliexpress-parallel-crawler",
+  "dependencies": {
+    "puppeteer-cluster": "^0.17.0",
+    "puppeteer-core": "~1.19.0",
+    "requestretry": "^4.0.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "docdash": "^1.1.1",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.18.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
