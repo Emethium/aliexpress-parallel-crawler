@@ -7,6 +7,7 @@
 const env = require("../config/environment")
 const logger = require("../config/logger")
 const measureTimeElapsed = require("../util/time").measureTimeElapsed
+const scrapAliexpress = require("./aliexpress")
 
 /**
  * @type {string[]} - The code for the allowed sites
@@ -26,7 +27,7 @@ function resolve(site) {
 
     switch (site) {
       case "aliexpress":
-      //   return scrapSomeSite
+        return scrapAliexpress
     }
   } else {
     logger.error(`An unknown site (${site}) was provided.`, {
@@ -64,7 +65,7 @@ async function taskHandler({ page, data: task }) {
   }
 
   // Start scraping
-  const { pricePoints, error, snapshots, perf } = await scraper({
+  const { pricePoints, error, perf } = await scraper({
     page,
     context,
   })
@@ -77,7 +78,6 @@ async function taskHandler({ page, data: task }) {
       transient: true,
       execution,
       perf,
-      snapshots,
     }
 
     // Preserve order, because if transient
@@ -106,7 +106,6 @@ async function taskHandler({ page, data: task }) {
   } else {
     task.success = true
     task.pricePoints = pricePoints
-    task.snapshots = snapshots
     task.perf = perf
   }
 }
@@ -124,7 +123,6 @@ function createTask(context) {
     retries: -1,
     success: false,
     timeElapsed: 0.0,
-    snapshots: {},
     perf: {},
     errors: [],
     pricePoints: [],
