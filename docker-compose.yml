@@ -5,7 +5,7 @@ volumes:
     driver: local
 
 services:
-  scraper:
+  scrapper:
     build:
       context: .
       target: development
