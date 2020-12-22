@@ -1,6 +1,8 @@
-
 {
   "body": [
-    {}
+    {
+      "site": "aliexpress",
+      "product": "bittboy"
+    }
   ]
 }

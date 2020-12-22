@@ -130,7 +130,6 @@ async function scrap(req, res) {
 
       const response = await execute(batch)
 
-      response.proxy = proxy
       response.receiptHandle = receiptHandle
       response.messageId = messageId
 
